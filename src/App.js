@@ -1,5 +1,6 @@
 import React, { Fragment, Component } from "react";
 import "./App.css";
+import AlbumList from "./AlbumList";
 import { getAlbumsForArtist, formatAlbumsInfo } from "./getItunesInfo";
 
 // TODO: Have a loading state
@@ -83,23 +84,6 @@ class App extends Component {
       });
   };
 
-  renderAlbumList = () => {
-    const { albums } = this.state;
-
-    return (
-      <Fragment>
-        <h2>{albums[0].artistName}</h2>
-        <ul>
-          {albums.map(album => (
-            <li key={album.id}>
-              <img src={album.albumArt} alt={album.albumName} />
-            </li>
-          ))}
-        </ul>
-      </Fragment>
-    );
-  };
-
   renderError = () => {
     return <h2 role="alert">{this.state.error}</h2>;
   };
@@ -123,7 +107,8 @@ class App extends Component {
           <button type="submit">Search</button>
         </form>
 
-        {this.state.albums.length > 0 ? this.renderAlbumList() : null}
+        {this.state.albums.length > 0 &&
+          <AlbumList aritstName={this.state.albums[0].artistName} albums={this.state.albums} />}
       </div>
     );
   }
