@@ -80,7 +80,7 @@ class App extends Component {
           value={textInput}
         />
 
-        {isLoading && <span>🐾</span>}
+        {isLoading && <span role="presentation">🐾</span>}
 
         {albums.length > 0 && (
           <AlbumList artistName={albums[0].artistName} albums={albums} />
