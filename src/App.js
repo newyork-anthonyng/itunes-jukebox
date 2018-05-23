@@ -1,5 +1,6 @@
-import React, { Fragment, Component } from "react";
+import React, { Component } from "react";
 import "./App.css";
+import ArtistSearchForm from "./ArtistSearchForm";
 import AlbumList from "./AlbumList";
 import { getAlbumsForArtist, formatAlbumsInfo } from "./getItunesInfo";
 
@@ -94,21 +95,18 @@ class App extends Component {
     return (
       <div>
         {this.renderError()}
-        <form onSubmit={this.handleSubmit}>
-          <label>
-            Search albums for artist
-            <input
-              type="text"
-              placeholder="Enter artist name"
-              value={textInput}
-              onChange={this.handleInputChange}
-            />
-          </label>
-          <button type="submit">Search</button>
-        </form>
+        <ArtistSearchForm
+          onSubmit={this.handleSubmit}
+          onChange={this.handleInputChange}
+          value={textInput}
+        />
 
-        {this.state.albums.length > 0 &&
-          <AlbumList aritstName={this.state.albums[0].artistName} albums={this.state.albums} />}
+        {this.state.albums.length > 0 && (
+          <AlbumList
+            aritstName={this.state.albums[0].artistName}
+            albums={this.state.albums}
+          />
+        )}
       </div>
     );
   }
