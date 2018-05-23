@@ -1,0 +1,15 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`formatAlbumsInfo should format axios response from iTunes correctly 1`] = `
+Object {
+  "albums": Array [
+    Object {
+      "albumArt": "https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/8a/65/be/8a65bef2-f23d-e43d-9124-f5e4293513f7/source/100x100bb.jpg",
+      "albumName": "The Essential Michael Jackson",
+      "artistName": "Michael Jackson",
+      "id": 159292399,
+      "itunesLink": "https://itunes.apple.com/us/album/the-essential-michael-jackson/159292399?uo=4",
+    },
+  ],
+}
+`;
