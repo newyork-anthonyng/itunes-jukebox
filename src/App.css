@@ -1,0 +1,27 @@
+input {
+  display: block;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
+}
+
+ul {
+  list-style: none;
+  padding: 0;
+}
+
+li {
+  cursor: pointer;
+  position: relative;
+}
+
+li:hover:after {
+  position: absolute;
+  content: "👈";
+  font-size: 50px;
+  top: 50%;
+  transform: translateY(-50%);
+}
+
+li img {
+  margin-right: 16px;
+}

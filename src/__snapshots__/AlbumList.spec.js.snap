@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`should render correctly 1`] = `
+<div>
+  <h2>
+    Michael Jackson
+  </h2>
+  <ul>
+    <li
+      key="159292399"
+    >
+      <a
+        href="https://itunes.apple.com/us/album/the-essential-michael-jackson/159292399?uo=4"
+        title="See The Essential Michael Jackson on iTunes"
+      >
+        <img
+          alt="The Essential Michael Jackson"
+          src="https://is2-ssl.mzstatic.com/image/thumb/Music127/v4/8a/65/be/8a65bef2-f23d-e43d-9124-f5e4293513f7/source/100x100bb.jpg"
+        />
+      </a>
+    </li>
+  </ul>
+</div>
+`;
+
+exports[`should render correctly when there are no albums 1`] = `
+<div>
+  <h2>
+    Michael Jackson
+  </h2>
+  <ul />
+</div>
+`;
