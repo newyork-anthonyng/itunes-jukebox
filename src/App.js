@@ -4,9 +4,7 @@ import ArtistSearchForm from "./ArtistSearchForm";
 import AlbumList from "./AlbumList";
 import { getAlbumsForArtist, formatAlbumsInfo } from "./getItunesInfo";
 
-// TODO: Have a loading state
 // TODO: Add styling
-// TODO: Refactor components and add unit tests
 
 class App extends Component {
   constructor(props) {
@@ -14,27 +12,7 @@ class App extends Component {
 
     this.state = {
       textInput: "",
-      albums: [
-        {
-          albumArt:
-            "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/fb/af/59/fbaf5908-0839-abc6-9f6a-bc7cc5b84f27/source/100x100bb.jpg",
-          albumName: "American Beauty / American Psycho",
-          artistName: "Fall Out Boy",
-          id: 948754194,
-          itunesLink:
-            "https://itunes.apple.com/us/album/american-beauty-american-psycho/948754194?uo=4"
-        },
-        {
-          albumArt:
-            "https://is5-ssl.mzstatic.com/image/thumb/Music/v4/c2/e6/25/c2e62579-2f93-b3a0-0bea-22658dc39ba6/source/100x100bb.jpg",
-          albumName: "Save Rock and Roll",
-          artistName: "Fall Out Boy",
-          id: 624200155,
-          itunesLink:
-            "https://itunes.apple.com/us/album/save-rock-and-roll/624200155?uo=4"
-        }
-      ],
-      loading: false,
+      albums: [],
       error: null,
       isLoading: false
     };
@@ -71,12 +49,13 @@ class App extends Component {
         const result = formatAlbumsInfo(response);
 
         this.setState({
-          albums: result.albums,
-          isLoading: true
+          albums: (result && result.albums) || [],
+          isLoading: false
         });
       })
       .catch(e => {
         console.error(e);
+
         this.setState({
           error:
             "Whoops. An error occurred when trying to get album information.",
@@ -90,22 +69,21 @@ class App extends Component {
   };
 
   render() {
-    const { textInput } = this.state;
+    const { textInput, albums, isLoading, error } = this.state;
 
     return (
       <div>
-        {this.renderError()}
+        {error && this.renderError()}
         <ArtistSearchForm
           onSubmit={this.handleSubmit}
           onChange={this.handleInputChange}
           value={textInput}
         />
 
-        {this.state.albums.length > 0 && (
-          <AlbumList
-            aritstName={this.state.albums[0].artistName}
-            albums={this.state.albums}
-          />
+        {isLoading && <span>🐾</span>}
+
+        {albums.length > 0 && (
+          <AlbumList artistName={albums[0].artistName} albums={albums} />
         )}
       </div>
     );

@@ -1,0 +1,131 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`Submitting form should call API response when submitting form 1`] = `
+Array [
+  "Michael Jackson",
+]
+`;
+
+exports[`Submitting form should update correctly when receiving correct API response 1`] = `
+<div>
+  <ArtistSearchForm
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value="Michael Jackson"
+  />
+  <AlbumList
+    albums={
+      Array [
+        Object {
+          "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/fb/af/59/fbaf5908-0839-abc6-9f6a-bc7cc5b84f27/source/100x100bb.jpg",
+          "albumName": "American Beauty / American Psycho",
+          "artistName": "Fall Out Boy",
+          "id": 948754194,
+          "itunesLink": "https://itunes.apple.com/us/album/american-beauty-american-psycho/948754194?uo=4",
+        },
+      ]
+    }
+    artistName="Fall Out Boy"
+  />
+</div>
+`;
+
+exports[`Submitting form should update correctly when receiving correct API response 2`] = `
+Object {
+  "albums": Array [
+    Object {
+      "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/fb/af/59/fbaf5908-0839-abc6-9f6a-bc7cc5b84f27/source/100x100bb.jpg",
+      "albumName": "American Beauty / American Psycho",
+      "artistName": "Fall Out Boy",
+      "id": 948754194,
+      "itunesLink": "https://itunes.apple.com/us/album/american-beauty-american-psycho/948754194?uo=4",
+    },
+  ],
+  "error": null,
+  "isLoading": false,
+  "textInput": "Michael Jackson",
+}
+`;
+
+exports[`Submitting form should update correctly when there is an error from API response 1`] = `
+<div>
+  <h2
+    role="alert"
+  >
+    Whoops. An error occurred when trying to get album information.
+  </h2>
+  <ArtistSearchForm
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value="Michael Jackson"
+  />
+</div>
+`;
+
+exports[`Submitting form should update correctly when there is an error from API response 2`] = `
+Object {
+  "albums": Array [],
+  "error": "Whoops. An error occurred when trying to get album information.",
+  "isLoading": false,
+  "textInput": "Michael Jackson",
+}
+`;
+
+exports[`should render correctly 1`] = `
+<div>
+  <ArtistSearchForm
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value=""
+  />
+</div>
+`;
+
+exports[`should render correctly when there is an error 1`] = `
+<div>
+  <h2
+    role="alert"
+  >
+    Uh oh. Something went wrong
+  </h2>
+  <ArtistSearchForm
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value=""
+  />
+</div>
+`;
+
+exports[`should render correctly with albums 1`] = `
+<div>
+  <ArtistSearchForm
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value=""
+  />
+  <AlbumList
+    albums={
+      Array [
+        Object {
+          "albumArt": "https://is1-ssl.mzstatic.com/image/thumb/Music3/v4/fb/af/59/fbaf5908-0839-abc6-9f6a-bc7cc5b84f27/source/100x100bb.jpg",
+          "albumName": "American Beauty / American Psycho",
+          "artistName": "Fall Out Boy",
+          "id": 948754194,
+          "itunesLink": "https://itunes.apple.com/us/album/american-beauty-american-psycho/948754194?uo=4",
+        },
+      ]
+    }
+    artistName="Fall Out Boy"
+  />
+</div>
+`;
+
+exports[`should should update correctly when updating input 1`] = `
+<div>
+  <ArtistSearchForm
+    onChange={[Function]}
+    onSubmit={[Function]}
+    value="Michael"
+  />
+</div>
+`;
